@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"net/url"
 	"strconv"
@@ -11,24 +10,7 @@ import (
 
 //Require running application
 func main() {
-	totalCountBeforeTest, err := GetTotalCount()
-	if err != nil {
-		log.Fatalln(err)
-	}
-	log.Printf("Total count before test: %d", totalCountBeforeTest)
-	err = IncrementTotalCount()
-	if err != nil {
-		log.Fatalln(err)
-	}
-	totalCountAfterTest, err := GetTotalCount()
-	if err != nil {
-		log.Fatalln(err)
-	}
-	log.Printf("Total count after test: %d", totalCountAfterTest)
-	if totalCountAfterTest <= totalCountBeforeTest {
-		log.Fatalln("Test count not incremented after sending request. You are a bad programmer. Try to find another job")
-	}
-	log.Printf("You are a good boy! Your code are beautiful!")
+
 }
 
 func GetTotalCount() (int, error) {
